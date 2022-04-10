@@ -1,7 +1,7 @@
-package com.example.learninghttprequest;
+package com.example.learninghttpclient;
 
-import com.example.learninghttprequest.jackson.Article;
-import com.example.learninghttprequest.jackson.ArticleJsonAnySetter;
+import com.example.learninghttpclient.jackson.Article;
+import com.example.learninghttpclient.jackson.ArticleJsonAnySetter;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 @RestController
-public class SendRequestController {
+public class Controller {
 
 //    @GetMapping("sendrequest")
 //    public String sendRequest() throws IOException {
@@ -48,8 +48,8 @@ public class SendRequestController {
 //        return requestResponse;
 //    }
 
-    @GetMapping("sendrequestasync")
-    public ArticleJsonAnySetter sendRequestAsync() throws IOException, InterruptedException {
+    @GetMapping("articleJsonAnySetter")
+    public ArticleJsonAnySetter sendRequest() throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create("https://petch.blog/api/articles/petchdotblog-admin-system")).build();
         HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
@@ -68,7 +68,7 @@ public class SendRequestController {
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://petch.blog/api/articles/petchdotblog-admin-system")).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        String jsonString = response.body().toString();
+        String jsonString = response.body();
         Article article = new ObjectMapper()
                 .readerFor(Article.class)
                 .readValue(jsonString);
@@ -77,7 +77,7 @@ public class SendRequestController {
     }
 
     @GetMapping("article2")
-    public Article getArticle2() throws IOException, InterruptedException {
+    public Article getArticleTwo() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://petch.blog/api/articles/petchdotblog-admin-system")).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

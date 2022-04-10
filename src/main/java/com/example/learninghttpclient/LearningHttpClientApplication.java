@@ -1,13 +1,13 @@
-package com.example.learninghttprequest;
+package com.example.learninghttpclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LearninghttprequestApplication {
+public class LearningHttpClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LearninghttprequestApplication.class, args);
+		SpringApplication.run(LearningHttpClientApplication.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.example.learninghttprequest;
+package com.example.learninghttpclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

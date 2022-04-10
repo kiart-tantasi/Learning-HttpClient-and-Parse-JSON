@@ -1,4 +1,4 @@
-package com.example.learninghttprequest.jackson;
+package com.example.learninghttpclient.jackson;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
